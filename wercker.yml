@@ -10,7 +10,7 @@ build:
 
         - script:
             name: jshint
-            code: $(npm bin)/jshint . --jslint-reporter > $WERCKER_REPORT_ARTIFACTS_DIR/jshint.xml
+            code: $(npm bin)/jshint
 
         # We're going to use reuse the node_modules for deployment, we will however
         # remove any dev dependencies.
