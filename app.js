@@ -9,7 +9,7 @@ server.addRoute({
     "path": "/hello",
     "config": {
         "handler": function (request) {
-            console.log("Received call!");
+            "use strict";
             request.reply({ "greeting": "hello world~" });
         }
     }
@@ -17,5 +17,6 @@ server.addRoute({
 
 // Start the server
 server.start(function() {
+    "use strict";
     console.log("Server started");
 });
