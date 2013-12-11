@@ -3,12 +3,22 @@ box: wercker/nodejs
 build:
   # The steps that will be executed on build
   steps:
+    # We already have the modules inside the repository,
+    # we just need to make sure that any native modules are ready for this env.
     - script:
         name: rebuild modules
         code: npm rebuild
 
     - script:
-        name: echo nodejs information
-        code: |
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
+        name: list before
+        code: ls node_modules
+
+    # We're going to use reuse the node_modules for deployment, we will however
+    # remove any dev dependencies.
+    - script:
+        name: npm prune
+        code: npm prune --production
+
+    - script:
+        name: list after
+        code: ls node_modules
