@@ -10,15 +10,11 @@ build:
         code: npm rebuild
 
     - script:
-        name: list before
-        code: ls node_modules
+        name: jshint
+        code: $(npm bin)/jshint . --jslint-reporter > $WERCKER_REPORT_ARTIFACTS_DIR/jshint.xml
 
     # We're going to use reuse the node_modules for deployment, we will however
     # remove any dev dependencies.
     - script:
         name: npm prune
         code: npm prune --production
-
-    - script:
-        name: list after
-        code: ls node_modules
