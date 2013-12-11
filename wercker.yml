@@ -17,3 +17,7 @@ build:
         - script:
             name: npm prune
             code: npm prune --production
+
+deploy:
+    steps:
+        - bundle-install
