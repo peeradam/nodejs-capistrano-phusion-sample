@@ -21,3 +21,6 @@ build:
 deploy:
     steps:
         - bundle-install
+        - cap:
+            stage: production
+            tasks: deploy
