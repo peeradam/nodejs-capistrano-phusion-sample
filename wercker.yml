@@ -1,20 +1,19 @@
 box: wercker/nodejs
 # Build definition
 build:
-  # The steps that will be executed on build
-  steps:
-    # We already have the modules inside the repository,
-    # we just need to make sure that any native modules are ready for this env.
-    - script:
-        name: rebuild modules
-        code: npm rebuild
+    steps:
+        # We already have the modules inside the repository,
+        # we just need to make sure that any native modules are ready for this env.
+        - script:
+            name: rebuild modules
+            code: npm rebuild
 
-    - script:
-        name: jshint
-        code: $(npm bin)/jshint . --jslint-reporter > $WERCKER_REPORT_ARTIFACTS_DIR/jshint.xml
+        - script:
+            name: jshint
+            code: $(npm bin)/jshint . --jslint-reporter > $WERCKER_REPORT_ARTIFACTS_DIR/jshint.xml
 
-    # We're going to use reuse the node_modules for deployment, we will however
-    # remove any dev dependencies.
-    - script:
-        name: npm prune
-        code: npm prune --production
+        # We're going to use reuse the node_modules for deployment, we will however
+        # remove any dev dependencies.
+        - script:
+            name: npm prune
+            code: npm prune --production
