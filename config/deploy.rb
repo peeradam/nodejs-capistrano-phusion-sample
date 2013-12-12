@@ -4,7 +4,8 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # set :deploy_to, '/var/www/my_app'
-# set :scm, :git
+# set :scm, :copy
+set :scm, 'copy'
 
 # set :format, :pretty
 # set :log_level, :debug

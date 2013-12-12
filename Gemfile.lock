@@ -1,3 +1,9 @@
+PATH
+  remote: /home/bvdberg/dev/wercker/capistrano-copy
+  specs:
+    capistrano-scm-copy (0.0.1.pre)
+      capistrano (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -23,3 +29,4 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano (~> 3.0.1)
+  capistrano-scm-copy!
