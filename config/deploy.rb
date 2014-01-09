@@ -7,7 +7,7 @@ set :application, 'my_app_name'
 set :scm, :copy
 
 set :ssh_options, {
-  user: "root",
+  user: "www-data",
   keys: %w(/home/bvdberg/.ssh/id_rsa)
 }
 
