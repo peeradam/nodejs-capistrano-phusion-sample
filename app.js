@@ -1,6 +1,5 @@
 var underscore = require("underscore");
 var Hapi = require("hapi");
-var Joi = require("joi");
 
 // Create a server with a host, port, and options
 var server = new Hapi.Server("0.0.0.0", 3000);
@@ -16,7 +15,7 @@ server.route({
     "config": {
         "validate": {
             "path": {
-                "key": Joi.string().alphanum()
+                "key": Hapi.types.String().alphanum().required()
             },
         },
         "payload": {
@@ -38,7 +37,7 @@ server.route({
         "validate": {
             "payload": false,
             "path": {
-                "key": Joi.string().alphanum()
+                "key": Hapi.types.String().alphanum().required()
             },
         },
         "handler": function(request) {
@@ -57,7 +56,7 @@ server.route({
         "validate": {
             "payload": false,
             "path": {
-                "key": Joi.string().alphanum()
+                "key": Hapi.types.String().alphanum().required()
             },
         },
         "handler": function(request) {
@@ -78,10 +77,7 @@ server.route({
     "path": "/store",
     "config": {
         "validate": {
-            "payload": false,
-            "path": {
-                "key": Joi.string().alphanum()
-            },
+            "payload": false
         },
         "handler": function(request) {
             "use strict";
