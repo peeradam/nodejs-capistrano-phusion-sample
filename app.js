@@ -1,5 +1,6 @@
 var underscore = require("underscore");
 var Hapi = require("hapi");
+var Joi = require("joi");
 
 // Create a server with a host, port, and options
 var server = new Hapi.Server("0.0.0.0", 3000);
