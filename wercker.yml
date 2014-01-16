@@ -21,6 +21,8 @@ build:
 deploy:
     steps:
         - bundle-install
+        - add-ssh-key:
+            keyname: STAGING_SSH_KEY
         - cap:
             stage: production
             tasks: deploy
