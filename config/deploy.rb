@@ -25,8 +25,8 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      #execute :touch, release_path.join('tmp/restart.txt')
-      execute "passenger-config", "restart-app", current_path
+      execute :mkdir, '-p', release_path.join('tmp')
+      # execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
