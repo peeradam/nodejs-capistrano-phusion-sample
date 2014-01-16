@@ -7,7 +7,8 @@ set :application, 'my_app_name'
 set :scm, :copy
 
 set :ssh_options, {
-  user: "www-data"
+  user: "www-data",
+  verbose: :debug
 }
 
 # set :format, :pretty
