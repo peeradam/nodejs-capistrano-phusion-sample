@@ -13,6 +13,12 @@ server.route({
     "method": "POST",
     "path": "/store/{key}",
     "config": {
+        "validate": {
+            "payload": true,
+            "path": {
+                "key": Joi.string().alphanum()
+            },
+        },
         "payload": {
             "mode": "raw",
             "allow": "application/octet-stream"
@@ -29,6 +35,12 @@ server.route({
     "method": "DEL",
     "path": "/store/{key}",
     "config": {
+        "validate": {
+            "payload": false,
+            "path": {
+                "key": Joi.string().alphanum()
+            },
+        },
         "handler": function(request) {
             "use strict";
             store[request.params.key] = undefined;
@@ -42,8 +54,11 @@ server.route({
     "method": "GET",
     "path": "/store/{key}",
     "config": {
-        "payload": {
-            "allow": "application/octet-stream"
+        "validate": {
+            "payload": false,
+            "path": {
+                "key": Joi.string().alphanum()
+            },
         },
         "handler": function(request) {
             "use strict";
@@ -62,6 +77,12 @@ server.route({
     "method": "GET",
     "path": "/store",
     "config": {
+        "validate": {
+            "payload": false,
+            "path": {
+                "key": Joi.string().alphanum()
+            },
+        },
         "handler": function(request) {
             "use strict";
             var keys = underscore.keys(store)
