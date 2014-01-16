@@ -25,4 +25,4 @@ deploy:
             keyname: STAGING_SSH_KEY
         - cap:
             stage: staging
-            tasks: deploy
+            tasks: deploy:check deploy
