@@ -23,7 +23,7 @@
   "dependencies": {
     "hapi": "~1.20.0",
     "underscore": "~1.5.2",
-    "joi": "~2.3.1"
+    "joi": "2.x.x"
   },
   "devDependencies": {
     "jshint": "~2.3.0"
