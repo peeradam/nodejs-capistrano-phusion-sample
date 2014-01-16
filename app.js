@@ -15,7 +15,6 @@ server.route({
     "path": "/store/{key}",
     "config": {
         "validate": {
-            "payload": true,
             "path": {
                 "key": Joi.string().alphanum()
             },
