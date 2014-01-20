@@ -41,7 +41,7 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
   
-  before :updated do
+  before :updated, :rebuild_npm do
     on roles(:app) do
       execute :npm, "rebuild"
     end
